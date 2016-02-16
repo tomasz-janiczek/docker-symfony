@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       php5-mysql \
       php5-memcache \
       php5-apcu \
+      php5-gd \
       php-twig \
       supervisor \
     && rm -rf /var/lib/apt/lists/*

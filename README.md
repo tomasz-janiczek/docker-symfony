@@ -13,7 +13,7 @@ Install [Docker](https://www.docker.com/) ([Boot2docker](http://boot2docker.io/)
 Then, run following command to run container:
 
 ```
-docker run -d -P vincentchalamon/symfony
+docker run -d -P marcin-piela/symfony
 ```
 
 Your project is available at [http://127.0.0.1](http://127.0.0.1) (for Boot2docker, follow [http://192.168.59.103](http://192.168.59.103)).
@@ -26,7 +26,7 @@ Create `docker-compose.yml` file as following:
 
 ```yml
 web:
-    image: vincentchalamon/symfony
+    image: marcin-piela/symfony
     volumes:
         - .:/var/www
     net: "host"
@@ -52,7 +52,7 @@ Let's imagine we'll run Nginx on port 8888, and MySql on port 3386. Update your 
 
 ```yml
 web:
-    image: vincentchalamon/docker-symfony
+    image: marcin-piela/docker-symfony
     ports:
         - 8888:80
     volumes:
