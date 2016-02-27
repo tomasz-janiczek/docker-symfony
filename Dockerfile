@@ -24,6 +24,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       php-twig \
       supervisor \
     && rm -rf /var/lib/apt/lists/*
+    
+RUN curl -sS https://getcomposer.org/installer | php -- \
+             --install-dir=/usr/local/bin \
+             --filename=composer
 
 # Configure PHP-FPM & Nginx
 RUN sed -e 's/;daemonize = yes/daemonize = no/' -i /etc/php5/fpm/php-fpm.conf \
