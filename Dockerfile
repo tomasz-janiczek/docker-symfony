@@ -22,6 +22,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       php5-apcu \
       php5-gd \
       php-twig \
+      openssh-server \
+      openjdk-7-jdk \
       supervisor \
     && rm -rf /var/lib/apt/lists/*
     
@@ -42,9 +44,12 @@ ADD vhost.conf /etc/nginx/sites-available/default
 
 RUN usermod -u 1000 www-data
 
+RUN adduser --quiet jenkins &&\
+    echo "jenkins:jenkins" | chpasswd
+
 VOLUME /var/www
 WORKDIR /var/www
 
-EXPOSE 80
+EXPOSE 22 80
 
 CMD ["/usr/bin/supervisord"]
